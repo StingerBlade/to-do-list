@@ -1,27 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div id="myDIV">
-      <script src="script.js"></script>
-        <h2>My To Do List</h2>
-        <!-- Input para el nuevo elemento de la lista -->
-        <input type="text" id="myInput" placeholder="Title...">
-        <!-- Botón para añadir un nuevo elemento a la lista -->
-        <span onclick="newElement()" class="addBtn">Add</span>
-    </div>
-    <!-- Lista desordenada para los elementos de la lista de tareas -->
-    <ul id="myUL">
-        <!-- Elementos preexistentes en la lista -->
-        <li >Pagar la luz</li>
-        <li>Ir con la abuela</li>
-        <li>Tarea</li>
-      </ul>
-      
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section>
+    <script src="script.js" defer></script>
+
+    <h1> Listado de tareas Pendientes</h1>
+<input type="text" id="tarea">
+<button id="agregar">Agregar</button>
+<h3>Tareas: <span id="cantidad">0</span></h3>
+<ul id="Listado">
+
+</ul>
+
+  </section>
 </body>
 </html>

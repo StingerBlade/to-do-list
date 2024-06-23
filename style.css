@@ -1,85 +1,48 @@
-/* Estilos generales para el cuerpo */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f2f2f2;
-}
-
-/* Estilos para el contenedor de la lista de tareas */
-#myDIV {
-  background: #3498db;
-  padding: 20px;
-  text-align: center;
-}
-
-/* Estilos para el título */
-#myDIV h2 {
-  margin: 0;
-  color: white;
-}
-
-/* Estilos para el input */
-input[type="text"] {
-  width: 75%;
-  padding: 10px;
-  margin: 0;
-  border: none;
-  border-radius: 5px;
+* {
   box-sizing: border-box;
 }
 
-/* Estilos para el botón de añadir */
-.addBtn {
-  padding: 10px 20px;
-  color: white;
-  background-color: #555;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-left: 10px;
+section{
+max-width: auto;
+text-align: center;
+border: 1px solid #0000;
+border-radius: 5px;
+padding: 10px;
+background-color: #ffc107;
+
 }
 
-.addBtn:hover {
-  background-color: #000;
-}
-
-/* Estilos para la lista desordenada */
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-/* Estilos para los elementos de la lista */
-ul li {
-  padding: 12px;
-  background: #eee;
-  margin-bottom: 5px;
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Estilos para los elementos completados */
-ul li.checked {
-  background: #888;
-  color: #fff;
-  text-decoration: line-through;
-}
-
-/* Estilos para los botones de cierre */
-.close {
+input {
+  width: 70%;
   padding: 10px;
-  color: white;
-  background-color: #ff6347;
+
+}
+button{
+  width: 20%;
+  margin: 15px;
+  border-radius: 50px;
   border: none;
-  border-radius: 50%;
   cursor: pointer;
-  display: inline-block;
+  background-color: red;
+
+}
+ul li{
+  border-bottom: 1px dashed #333;
+  margin: 8px 0;
 }
 
-.close:hover {
-  background-color: #e60000;
+span{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: firebrick;
+  border-radius: 100%;
+  text-align: center;
+  color: #fff;
+  margin: 0 10px;
+  cursor: pointer;
+
+}
+span:hover {
+  background-color: darkred;
 }
