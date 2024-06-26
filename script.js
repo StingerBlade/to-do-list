@@ -20,16 +20,25 @@ btn.onclick = function () {
   // creo un elemento li
   var li = document.createElement("li");
   li.textContent = elemento;
+  li.className = "uk-flex uk-flex-between uk-flex-middle";
+
   //agrego el li al listado
   listado.appendChild(li);
   
+  
+ 
+
+
   //incremento la cantidad de tareas
   total ++;
   cantidad.innerHTML = total;
 
   //agregamos el boton de eliminar a cada elemnto li
   var btneliminar = document.createElement("span");
-  btneliminar.textContent = "\u00d7";
+  btneliminar.textContent = "X";
+  // btnEliminar.className = "uk-text-danger uk-margin-small-left"; 
+  // POR X RAZON SI PONGO ESE ESTILO NO APARECE EL BOTON
+
   li.appendChild(btneliminar);
 
 //agregamos la funcionalidad que elimina la tarea
