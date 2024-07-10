@@ -7,46 +7,6 @@ var cantidad = document.getElementById("cantidad");
 // Variable que lleva la cantidad de tareas
 var total = 0;
 
-// Función para agregar una tarea al DOM
-function agregarTareaAlDOM(tarea) {
-  var li = document.createElement("li");
-  li.textContent = tarea.descripcion;
-  li.className = "uk-flex uk-flex-between uk-flex-middle";
-  li.dataset.id = tarea.id;
-
-  // Agregar check a cada elemento li
-  var btncheck = document.createElement("input");
-  btncheck.className = "uk-checkbox";
-  btncheck.type = "checkbox";
-  li.appendChild(btncheck);
-
-  // Cuando se haga el check que se tache la tarea
-  btncheck.onclick = function () {
-    if (btncheck.checked) {
-      li.style.textDecoration = 'line-through';
-    } else {
-      li.style.textDecoration = 'none';
-    }
-  };
-
-  // Agregar el botón de eliminar a cada elemento li
-  var btneliminar = document.createElement("span");
-  btneliminar.textContent = "X";
-  btneliminar.className = "uk-text-danger";
-  li.appendChild(btneliminar);
-
-  // Agregar funcionalidad que elimina la tarea
-  btneliminar.onclick = function () {
-    eliminarTarea(tarea.id);
-    li.remove();
-    total--;
-    cantidad.innerHTML = total;
-  };
-
-  // Agregar el li al listado
-  listado.appendChild(li);
-}
-
 // Función para obtener tareas desde la API
 function obtenerTareas() {
   fetch('/api/tareas')
@@ -80,17 +40,52 @@ function agregarTarea(tarea) {
 function eliminarTarea(id) {
   fetch(`/api/tareas/${id}`, {
     method: 'DELETE'
+  }).then(() => {
+    total--;
+    cantidad.innerHTML = total;
   });
+}
+
+// Función para agregar tarea al DOM
+function agregarTareaAlDOM(tarea) {
+  var li = document.createElement("li");
+  li.textContent = tarea.descripcion;
+  li.className = "uk-flex uk-flex-between uk-flex-middle";
+
+  var btncheck = document.createElement("input");
+  btncheck.className = "uk-checkbox";
+  btncheck.type = "checkbox";
+  li.appendChild(btncheck);
+
+  btncheck.onclick = function () {
+    if (btncheck.checked) {
+      li.style.textDecoration = 'line-through';
+    } else {
+      li.style.textDecoration = 'none';
+    }
+  }
+
+  var btneliminar = document.createElement("span");
+  btneliminar.textContent = "X";
+  btneliminar.className = "uk-text-danger";
+
+  li.appendChild(btneliminar);
+
+  btneliminar.onclick = function () {
+    li.remove();
+    eliminarTarea(tarea.id);
+  }
+
+  listado.appendChild(li);
 }
 
 // Manejar el evento de agregar tarea
 btn.onclick = function () {
   if (inputTarea.value == "") {
-    alert("no puede dejar el campo vacío");
+    alert("No puede dejar el campo vacío");
     return;
   }
   var tarea = {
-    id: Date.now(),  // Genera un ID único para cada tarea
     descripcion: inputTarea.value
   };
   agregarTarea(tarea);
